@@ -2,3 +2,8 @@
 root: data
 category: metal_nut
 output_dir: outputs/reports
+
+# Hold out normal training samples; keep original test data unchanged.
+validation_ratio: 0.2
+seed: 42
+split_dir: configs/splits
