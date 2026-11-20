@@ -1,0 +1,4 @@
+# Paths are relative to the project root.
+root: data
+category: metal_nut
+output_dir: outputs/reports
