@@ -1,0 +1,33 @@
+# Python environments and generated files
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# Local dataset: keep only its documentation
+/data/*
+!/data/README.md
+
+# Generated results and model artifacts
+/outputs/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Local tools and settings
+.codex/
+.vscode/
+.idea/
+.env
+.env.*
+!.env.example
+Thumbs.db
+.DS_Store
+
+# Keep the local planning document out of the public repository
+/docs/阶段一.docx
