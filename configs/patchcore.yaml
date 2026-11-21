@@ -1,0 +1,10 @@
+backbone: resnet18
+layers: [layer2, layer3]
+image_size: 224
+batch_size: 4
+coreset_sampling_ratio: 0.01
+num_neighbors: 9
+normal_quantile: 0.95
+seed: 42
+device: cuda
+output_dir: outputs/patchcore/metal_nut_resnet18

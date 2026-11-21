@@ -10,6 +10,7 @@ dependencies = [
     "numpy>=2.4.6",
     "opencv-python-headless>=5.1.0.95",
     "pyyaml>=6.0.3",
+    "scikit-learn>=1.9.1",
     "torch>=2.14.1",
     "torchvision>=0.29.1",
 ]

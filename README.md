@@ -2,7 +2,7 @@
 
 工业视觉缺陷检测系统，基于 MVTec AD 数据集开展正常/异常判定与缺陷定位。
 
-当前处于 V0.1：已完成工程与算法环境初始化，提供数据完整性检查和标注预览脚本。模型训练、推理和界面尚未实现。
+当前已跑通 V0.2 初始 PatchCore 基线：完成数据检查、固定划分、按清单加载、正常特征建库、阈值校准与测试评估。交互界面尚未实现。
 
 首版按项目规划使用 `metal_nut`（金属螺母），计划以 PatchCore 建立基线，后续增加评估、异常热力图、批量推理和 Streamlit 界面。
 
@@ -79,4 +79,14 @@ uv run scripts/split_data.py
 
 1. 核对数据检查报告和标注预览。
 2. 核对固定划分清单和重复检查报告。
-3. 跑通 PatchCore 基线，保存异常分数和异常热力图。
+3. 分析 PatchCore 的误报、漏检案例，并完善单图推理入口。
+
+## 按清单运行 PatchCore
+
+```powershell
+uv run scripts/train.py
+```
+
+使用 `configs/patchcore.yaml` 的 ResNet-18/224×224/1% coreset 配置。程序重新校验固定划分，仅使用 176 张正常图片建立记忆库；44 张正常验证图用于校准阈值，115 张测试图在阈值冻结后评估。
+
+模型、分数、预测热力图和指标保存到 `outputs/patchcore/metal_nut_resnet18/`。像素指标在 224×224 分辨率下计算，异常分数不是概率。数据协议、运行方法和局限见 [PatchCore 基线说明](docs/patchcore_baseline.md)。
